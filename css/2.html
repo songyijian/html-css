@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            background: #ccc
+        }
+        
+        .box>div {
+            background: red;
+            margin: 50px;
+        }
+        
+        .box2 {
+            /*border: 1px solid;*/
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="c1">1</div>
+        <div class="c1">2</div>
+    </div>
+    <h2>margin:向上传递，叠压</h2>
+    <pre>
+        向上传递:
+            1、给父级加边框
+            2、触发 bfc、haslayout - overflow  。。。。。
+        叠压：
+            只有使用同一方向
+    </pre>
+
+    <div class="box box2">
+        <div class="c1">1</div>
+        <div class="c1">2</div>
+    </div>
+
+
+
+
+</body>
+
+</html>

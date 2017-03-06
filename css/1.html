@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        ul {
+            border: 2px solid red;
+            padding: 0
+        }
+        
+        li {
+            height: 50px;
+            width: 100px;
+            list-style: none;
+            background: #ccc;
+            border: 1px solid;
+            float: left;
+            box-shadow: 0 0 5px 5px yellow;
+        }
+        
+        .overs {
+            overflow: hidden;
+        }
+        
+        .clears {
+            /*兼容 ie*/
+            zoom: 1;
+        }
+        
+        .clears:after {
+            content: '';
+            display: block;
+            clear: both
+        }
+        
+        br {
+            clear: both
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h2>浮动 - float:;<br> 清楚浮动 - claer:;
+    </h2>
+
+    <h3>1、伪类 :after， 配合claer</h3>
+    <pre>
+    给盒子添加伪类：
+    .clears:after {
+            content: '';
+            display: block;
+            clear: both
+        }
+    优势明显， 兼容堪忧
+</pre>
+    <ul class="ul1 clears">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <!--<hr clear="botn">-->
+    </ul>
+    <h3>2、用《br claer="all"》代替伪类， 配合claer</h3>
+    <pre>
+   br 行间属性也可以用css来处理
+    br {
+            clear: both
+        }
+    无兼容问题，只是会多一个标签
+</pre>
+    <ul class="ul1 ">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <br>
+        <!--<br clear="all">-->
+    </ul>
+
+    <h3>3、overflow: hidden;</h3>
+    <pre>
+    溢出隐藏：
+    .overs {
+            overflow: hidden;
+        }
+    如果有阴影也会被切掉
+    </pre>
+    <ul class="ul2 overs">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+</body>
+
+</html>

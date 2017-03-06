@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 1px solid;
+            overflow: hidden;
+            background: #ccc
+        }
+        
+        .box>div {
+            float: left;
+            background: red;
+            height: 50px;
+            width: 50px;
+            margin-left: 50px;
+            *display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>ie6/7 margin-left: 出现双倍距离</h2>
+    <pre>
+        
+        *display: inline;
+    </pre>
+
+    <div class="box">
+        <div class="c1">1</div>
+        <div class="c1">2</div>
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        li {
+            border: 1px solid red;
+            *vertical-align: top;
+        }
+        
+        li>span {
+            background: yellow;
+            float: left;
+        }
+        
+        li>em {
+            background: #ccc;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>ie6/7 li内的元素浮动，li之间4个像素空隙</h2>
+    <pre>
+        *vertical-align: top;
+    </pre>
+
+
+    <ul>
+        <li><span>1</span><em>2</em></li>
+        <li><span>1</span><em>2</em></li>
+        <li><span>1</span><em>2</em></li>
+    </ul>
+
+</body>
+
+</html>
