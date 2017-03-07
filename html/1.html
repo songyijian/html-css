@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>1、历史管理</title>
+</head>
+
+<body>
+    <h2>location.hash / onhashchange</h2>
+    <input type="button" id="btn1" value="hash 历史管理">
+    <div id="box"></div>
+
+
+    <h2>history_onpopstate</h2>
+    <input type="button" id="btn2" value="hash 历史管理">
+    <div id="box2"></div>
+
+    <script>
+        var btn = document.getElementById("btn1");
+        var box = document.getElementById("box");
+        btn.onclick = () => {
+            let nn = Math.random() * 100;
+            location.hash = nn;
+            // box.innerHTML = nn;
+        };
+
+        window.onhashchange = (ev) => {
+            console.log("xxx")
+            box.innerHTML = location.hash;
+        }
+
+
+        //history ========================
+        var btn2 = document.getElementById("btn2");
+        var box2 = document.getElementById("box2");
+        btn2.onclick = () => {
+            let nn = parseInt(Math.random() * 10000);
+            history.pushState(nn, 'history_' + nn, nn);
+            //history.replaceState({page: 3}, "title 3", "?page=3"); //修改当前激活的历史记录条目 http://ex..?page=2 变为 http://ex..?page=3,条目索引为3
+            box2.innerHTML = nn;
+        };
+
+        window.onpopstate = function(ev) {
+            console.log("pp")
+            box2.innerHTML = ev.state;
+        }
+
+
+
+
+
+        // fj = {
+        //     name: 'song',
+        //     f: function() {
+        //         console.log(this.name)
+        //             //song
+        //     },
+        //     f2: () => {
+        //         console.log(this.name)
+        //             //''
+        //     },
+        //     f3() {
+        //         console.log(this.name)
+        //             //song
+        //     }
+        // }
+        // fj.f2();
+        // fj.f3();
+        // fj.f();
+    </script>
+</body>
+
+</html>
