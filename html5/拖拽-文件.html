@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div {
+            text-align: center;
+            height: 400px;
+            width: 400px;
+            background: red
+        }
+    </style>
+</head>
+
+<body>
+    <h3 id="h3">0</h3>
+    <div id="box">将文件拖拽到此区域</div>
+
+    <script>
+        var b = document.querySelector('#box');
+        var t = document.querySelector('#h3');
+
+        //碰撞体
+        b.ondragenter = function() {
+            this.innerHTML = '可以释放啦';
+        }
+        b.ondragleave = function() {
+            this.innerHTML = '将文件拖拽到此区域';
+        }
+        b.ondragover = function(ev) {
+            ev.preventDefault(); //这里也要阻止默认事件
+        }
+
+
+        b.ondrop = function(ev) { //被碰撞后连续
+            ev.preventDefault();
+            var fs = ev.dataTransfer.files;
+            var fd = new FileReader();
+            console.log(fs, fd)
+            alert(typeof fd)
+
+        }
+    </script>
+
+
+</body>
+
+</html>

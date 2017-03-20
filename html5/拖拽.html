@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #lis {
+            width: 200px;
+            height: 50px;
+            background: yellow;
+            border: 1px solid red
+        }
+        
+        div {
+            height: 400px;
+            width: 400px;
+            background: red
+        }
+    </style>
+</head>
+
+<body>
+    <h3 id="h3">0</h3>
+    <p draggable="true" id="lis"></p>
+    <div id="box"></div>
+
+    <script>
+        var l = document.querySelector('#lis');
+        var b = document.querySelector('#box');
+        var t = document.querySelector('#h3');
+        var ii = 0;
+
+        //拖拽元素
+        l.ondragstart = function() {
+            var ev = ev || window.event;
+            //ev.dataTransfer 非常重要
+            ev.dataTransfer.setData('name', 'hello'); //从这里为碰撞体传入参数
+            ev.dataTransfer.effectAllowed = 'link';
+            //ev.dataTransfer.setDragImage(oImg, 0, 0);
+
+            this.style.background = "#000"
+        }
+        l.ondragend = function() {
+            this.style.background = "yellow"
+        }
+
+        l.ondrag = function() {
+            //t.innerHTML = ii++
+        }
+
+        //碰撞体
+        b.ondragenter = function() {
+            this.style.background = 'blue';
+        };
+        b.ondragover = function(ev) { //被碰撞后连续
+            //enter和leave之间连续触发
+            //要想触发drop事件，就 必须在dragover当中阻止默认事件
+            t.innerHTML = ii++;
+            ev.preventDefault();
+        }
+        b.ondragleave = function() {
+            this.style.background = 'red';
+        };
+
+        b.ondrop = function(ev) { //被碰撞后连续
+            var fs = ev.dataTransfer;
+            console.log(fs)
+            alert(fs.getData('name'))
+        }
+    </script>
+
+
+</body>
+
+</html>

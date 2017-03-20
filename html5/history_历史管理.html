@@ -31,10 +31,10 @@
         }
 
 
-        //history ========================
+        //history 在服务器环境下  ========================
         var btn2 = document.getElementById("btn2");
         var box2 = document.getElementById("box2");
-        btn2.onclick = () => {
+        btn2.onclick = function() {
             let nn = parseInt(Math.random() * 10000);
             history.pushState(nn, 'history_' + nn, nn);
             //history.replaceState({page: 3}, "title 3", "?page=3"); //修改当前激活的历史记录条目 http://ex..?page=2 变为 http://ex..?page=3,条目索引为3
@@ -53,21 +53,21 @@
         // fj = {
         //     name: 'song',
         //     f: function() {
-        //         console.log(this.name)
+        //         console.log(this, this.name)
         //             //song
         //     },
         //     f2: () => {
-        //         console.log(this.name)
+        //         console.log(this, this.name)
         //             //''
         //     },
         //     f3() {
-        //         console.log(this.name)
+        //         console.log(this, this.name)
         //             //song
         //     }
         // }
+        // fj.f();
         // fj.f2();
         // fj.f3();
-        // fj.f();
     </script>
 </body>
 
