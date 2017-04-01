@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BFC,IFC</title>
+    <style>
+  		.box1{ width: 300px; height: 300px; border: 1px solid red;margin:0; padding: 0; position:relative;}
+  		.box1>div{ height: 100px; width: 100px;  background: #ccc;  position: absolute; left: 0;right: 0; top: 0; bottom: 0; margin:auto;}
+  		
+  		
+  		
+  		.box{ height:20vw; width:20vw; border: 1px solid red; }
+	    .b1{display:flex; justify-content:center; align-items: center  }
+	    .b1>div{ height:10vw; width:10vw; border:1px solid; display:inline-flex; background:rgba(0,0,0,0.2) }
+  		
+    </style>
+</head>
+
+<body>
+
+<p>position: absolute; left: 0;right: 0; top: 0; bottom: 0; margin:auto;</p>
+<div class="box1">   
+  <div>item center</div>
+</div>
+
+<p>display:flex; justify-content:center; align-items: center</p>
+<div class="box b1">
+	<div>item center</div>
+</div>
+
+
+    
+</body>
+
+</html>

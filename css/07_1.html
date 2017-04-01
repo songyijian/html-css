@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex 应用场景</title>
+    <style>
+      .box{ height:20vw; width:20vw; border: 1px solid red; }
+	  .b1{display:flex; justify-content:center; align-items: center  }
+	  .b1>div{ height:10vw; width:10vw; border:1px solid; display:inline-flex; background:rgba(0,0,0,0.2) }
+    </style>
+</head>
+
+<body>
+   <p>居中</p>
+   <div class="box b1">
+   		<div>item center</div>
+   </div>
+
+
+<pre>
+n      全部
+odd    奇数行
+even   偶数行
+2n     %2      
+可以有计算表达(3n) (2n-1)
+
+
+结构选择器
+            ul *:nth-child(n){}----------ul下所有节点的第n个（不限节点属性）
+
+先计数，再判断类型 == 第几个是不上该类型
+li:nth-child(n){}  ----------作为子节点的第n个li（必须是li）
+li:nth-last-child(n){} ------从上面数 
+li:first-child{} ------------前面第n个
+li:last-child{} -------------最后第n个
+
+先考虑类型，再计数 == 指定标签的第几个
+li:nth-of-type(2){} ---------li父级下的li节点，非li节点跳过不计算
+li:nth-first-of-type(){} ----前面第n个
+li:nth-last-of-type(){} -----最后第n个
+:first-of-type{}     第一个
+:last-of-type{}     最后一个
+
+li:not(.h2) -----------------排除
+p:empty{} -------------------空标签
+
+
+属性选择器（自定义也可以\ie7以上）
+li[name]   --------------自定义属性选择
+li[name="cc"] -----------属性值
+li[name~="cc"] ----------值是一个词列表（必写），其中包含
+li[name^="c"]  ----------c母开头
+li[name$="c"]  ----------c母结尾
+li[name*="c"]  ----------属性值内包含这个之母的
+li[name|="c"]  ----------"c-dd" 该字母开头“-”分开（第一个属性值）
+
+
+伪类选择器
+a:link   --未访问的链接 
+a:visited --已访问的链接
+a:hover  --当有鼠标悬停在链接上
+a:active --被选择的链接
+:before{content:"**"｝---前面插入“内容”（一定要配 content）
+:after{content:"**"｝ ---后面插入内容
+
+css3
+#div1:target  --- 匹配文档中特定”id”点击后的效果 （哈希值，锚点）
+div:target{ display:block; background:#F00; }
+input:disabled -------不可编辑状态 （<input type="text"  disabled /> 加 disabled）
+input:enabled --------可编辑状态
+input:checked  -------选中状态（选框）
+:first-line -----------第一行
+:first-letter ---------第一个字
+::selection -----------文字被选中时
+
+li~span 下面的兄弟节点为span的节点
+
+基础的选择器
+
+* {}         统配
+div         标签选择器
+.className    类选择
+#id        ID选择
+
+复合选择器 
+
+E,F         多元 - 并集 多个选择器可以用逗号相连（.calssp， #idp）
+div p       后代
+1、交集， 两个同时满足才生效，两个之间不能有空格 (div.classNam) 
+2、并集，多个选择器可以用逗号相连（.calssp， #idp） 
+3、后代，div下的p标签（div p）
+
+
+
+选择器 结构性伪类择器（）---（ie9以上）
+n      全部
+odd    奇数行
+even   偶数行
+2n     %2
+
+结构选择器
+:first-of-type{} 第一个
+:last-of-type{} 最后一个
+
+ul *:nth-child(n){}----------ul 下所有节点下的n（不会限节点属性）
+li:nth-child(n){}  ----------li作为子节点的第n（必须是li）
+li:nth-last-child(n){} ------从上面数 
+li:first-child{} ------------第一个
+li:last-child{} -------------最后一个
+
+li:nth-of-type(2){} ---------li父级下的li节点，非li节点跳过不计算
+li:nth-first-of-type(){} ----第一个
+li:nth-last-of-type(){} -----最后一个
+p:empty{} -------------------空节点
+li:not(.h2) -----------------排除
+
+属性选择器（自定义也可以\ie7以上）
+li[name]   --------------自定义属性选择
+li[name="cc"] -----------属性值
+li[name~="cc"] ----------值是一个词列表（必写），其中包含
+li[name^="c"]  ----------c母开头
+li[name$="c"]  ----------c母结尾
+li[name*="c"]  ----------属性值内包含这个之母的
+li[name|="c"]  ----------"c-dd" 该字母开头“-”分开（第一个属性值）
+li~span -----------------li下面的兄弟节点为span的节点
+
+伪类选择器
+#div1:target-------当前的URL片段的元素类型（哈希值，锚点）
+<a href="#div3">div3</a>
+<div id="div1">div1</div>
+div:target{ display:block; background:#F00; }
+input:disabled -------不可编辑状态 （<input type="text"  disabled /> 加 disabled）
+input:enabled --------可编辑状态
+input:checked  -------选中状态（选框）
+:first-line -----------第一行
+:first-letter ---------第一个字
+::selection -----------文字被选中时
+
+:before{content:"**"｝---在文本前面插入“内容”（一定要配 content）
+:after{content:"**"｝---在后面插入内容
+
+
+	
+</pre>
+   
+
+   
+   
+</body>
+
+</html>
