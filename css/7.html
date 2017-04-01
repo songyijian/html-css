@@ -107,7 +107,7 @@
         
         .p9 {
             display: flex;
-            flex-flow: row wrap;
+            flex-flow: row;
             justify-content: space-between
         }
         
@@ -117,70 +117,129 @@
         }
         
         .p9 li:nth-of-type(2) {
-            flex: auto 2;
+            flex:2;
             background: yellow
+        }
+        
+        
+        .p10 {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-around;
+           align-items:flex-end ;
+        }
+        .p10 li {
+            display: inline-flex;
+            width: 200px;
+            height:100px;
+        }
+        .p10 li:nth-of-type(2) {
+            display: inline-flex;
+            width: 200px;
+            height:50px;
+        }
+        .p10 li:nth-of-type(3) {
+            display: inline-flex;
+            width: 200px;
+            height:120px;
+        }
+        
+        .p11 {
+            display: flex;
+            flex-flow: row;
+            justify-content: space-around;
+            align-items:flex-end ;
+        }
+        .p11 li {
+            display: inline-flex;
+            /*height:100px;*//*width: 100px;*/text-align:left;
+            flex:0 1 auto;text-decoration: underline;
+        }
+        .p11 li:nth-of-type(2) {
+            height:50px;
+            align-self:flex-start;
+        }
+        .p11 li:nth-of-type(3) {
+            height:100px;
+            align-self:center;
+            
+        }
+        .p11 li:nth-of-type(4) {
+            height:80px;
+            align-self:baseline;
+            font:30px/60px "微软雅黑";
+        }
+        .p11 li:nth-of-type(5) {
+        	line-height:50px;
+        	font:20px/40px "微软雅黑";
+            height:80px;
+            align-self:baseline;
+        }
+        .p11 li:nth-of-type(6) {
+            height:80px;
+            align-self:stretch;
+        }
+        .p11 li:nth-of-type(7) {
+            height:80px;
+            align-self:stretch;
         }
     </style>
 </head>
 
 <body>
     <pre>
-		flex
-			columns在伸缩容器上没有效果。float、clear和vertical-align在伸缩项目上没有效果。
+flex
+	columns在伸缩容器上没有效果。float、clear和vertical-align在伸缩项目上没有效果。
 
 
-		定义在盒子上的（父级）
-			display: flex| webkit-flex;
-			
-			轴排列+换行
-			flex-flow:flex-direction & flex-wrap; 
+定义在盒子上的（父级）
+	display: flex| webkit-flex;
+	
+	轴排列+换行
+	flex-flow:flex-direction & flex-wrap; 
 
-			轴排列方式
-			flex-direction: row | row-reverse | column | column-reverse;
-							row 	（默认） 水平，由左到右
-							row-reverse 相反
-							column 		纵向 ，由上到下
-							column-reverse 	相反
-			
-			换行
-			flex-wrap: nowrap | wrap | wrap-reverse;
-						nowrap （默认）不
-						wrap 	折行
-						wrap-reverse 折行但是顺序相反，第一行在下方
-						
+	轴排列方式
+	flex-direction: row | row-reverse | column | column-reverse;
+					row 	（默认） 水平，由左到右
+					row-reverse 相反
+					column 		纵向 ，由上到下
+					column-reverse 	相反
+	换行
+	flex-wrap: nowrap | wrap | wrap-reverse;
+				nowrap （默认）不
+				wrap 	折行
+				wrap-reverse 折行但是顺序相反，第一行在下方
 
 
-			主轴上对齐方式,只会在主轴项目仍具有剩余空间时才会起作用
-			justify-content: flex-start | flex-end | center | space-between | space-around;
-							flex-start 	(默认)主轴上向起始方向对齐
-							flex-end 	上向结束方向对齐
-							center 		居中对齐
-							space-between 	两端对齐，第一个起始位置，最后一个在结束位置
-							space-around 	等分间距，但第一个项目与最后一个前后两端保持项目之间间距的1/2
-				
-				
-			交叉轴上的对齐方式	
-			align-items: flex-start | flex-end | center | baseline | stretch;
-						flex-start 	起始方向对齐
-						flex-end 	结束方向对齐
-						center		居中对齐
-						baseline 	项目的第一行文字的基线对齐
-						stretch 	拉伸对齐
-			
-			
-		定义在项目上的（子级）
+	主轴上对齐方式,只会在主轴项目仍具有剩余空间时才会起作用
+	justify-content: flex-start | flex-end | center | space-between | space-around;
+					flex-start 	(默认)主轴上向起始方向对齐
+					flex-end 	上向结束方向对齐
+					center 		居中对齐
+					space-between 	两端对齐，第一个起始位置，最后一个在结束位置
+					space-around 	等分间距，但第一个项目与最后一个前后两端保持项目之间间距的1/2
+	交叉轴上的对齐方式()
+	align-items: flex-start | flex-end | center | baseline | stretch;
+				flex-start 	起始方向对齐
+				flex-end 	结束方向对齐
+				center		居中对齐
+				baseline 	项目的第一行文字的基线对齐
+				stretch 	拉伸对齐
+	
+	
+定义在项目上的（子级）
 
-			排列顺序 正负都可以
-			order：n; 	
-			
-			控制模型 
-			flex:	 默认：0 1 auto
-				flex-grow:n;	生长因子 占比（分配剩余空间）  负数无效
-				flex-shrink:; 	收缩因子 默认1,0不缩
-				flex-basis:; 	默认auto 分配主轴多余空间之前，计算项目占据的主轴空间
-				
-			交叉轴的对齐方式	
-			align-self: auto | flex-start | flex-end | center | baseline | stretch;
+	排列顺序 正负都可以
+	order：n; 	
+	
+	控制模型 
+	flex:	 默认：0 1 auto
+		flex-grow:n;	生长因子 占比（分配剩余空间）  负数无效
+		flex-shrink:; 	收缩因子 默认1,0不缩
+		flex-basis:; 	默认auto 分配主轴多余空间之前，计算项目占据的主轴空间
+		
+	交叉轴的对齐方式	(默认会继承父级align-items:;)
+	align-self: auto | flex-start | flex-end | center | baseline | stretch;
 	
 	</pre>
 
@@ -193,7 +252,6 @@
         <li>4</li>
         <li>5</li>
     </ul>
-
 
     <p>Y排列: display:flex; flex-flow:column;</p>
     <ul class="box p3">
@@ -237,13 +295,28 @@
         <li>2</li>
         <li>3</li>
     </ul>
-
     <ul class="box p9">
         <li>1</li>
         <li>2</li>
         <li>3</li>
     </ul>
 
+	<p> align-items: flex-start | flex-end | center | baseline | stretch;</p>
+	<ul class="box p10">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    
+    <ul class="box p11">
+        <li>1 inherit; aling-items</li>
+        <li>2 align-self:flex-start</li>
+        <li>3 align-self:center;</li>
+        <li>align-self:baseline;</li>
+        <li>align-self:baseline;</li>
+        <li>4</li>
+        <li>4</li>
+    </ul>
 
 </body>
 
